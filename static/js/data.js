@@ -38,11 +38,11 @@ function getCommunes(codeDepartement) {
 	})
 }
 
-function getMutations(codeCommune, idSection, startDate, endDate) {
+function getMutations(codeCommune, idSection, startDate, endDate, natures, types) {
 	return getRemoteJSON(`/api/mutations3/${codeCommune}/${idSectionToCode(idSection)}`)
 		.then(function (data) {
 			return data.mutations.filter(function (m) {
-				return m.date_mutation >= startDate && m.date_mutation <= endDate && m.id_parcelle.startsWith(idSection)
+				return m.date_mutation >= startDate && m.date_mutation <= endDate && m.id_parcelle.startsWith(idSection) && natures.includes(m.nature_mutation) && types.includes(m.type_local)
 			})
 		})
 }

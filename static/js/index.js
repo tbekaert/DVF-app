@@ -69,6 +69,8 @@ var data_section = null;
 
 var startDate = MIN_DATE
 var endDate = MAX_DATE
+var natures = Array.from(document.querySelectorAll('input[name="nature"]:checked')).map(type => type.value)
+var types = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(type => type.value)
 
 var fillColor = '#2a4ba9'
 var borderColor = '#627BC1'
@@ -365,6 +367,22 @@ function selectionnerParcelle() {
 	entrerDansParcelle(sonCode);
 }
 
+function selectionnerNature() {
+	// L'utilisateur a cliqué sur une case à cocher de nature de mutation
+	natures = Array.from(document.querySelectorAll('input[name="nature"]:checked')).map(type => type.value)
+	if (idSection) {
+		entrerDansSection(idSection)
+	}
+}
+
+function selectionnerType() {
+	// L'utilisateur a cliqué sur une case à cocher de type de mutation
+	types = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(type => type.value)
+	if (idSection) {
+		entrerDansSection(idSection)
+	}
+}
+
 function filledCommunesOptions(feature) {
 	$('#communes').append($('<option />', {
 		value: feature.properties.code,
@@ -457,7 +475,7 @@ function entrerDansSection(newIdSection) {
 			parcelles = data;
 		}),
 		// Charge les mutations
-		getMutations(codeCommune, idSection, startDate, endDate).then(function (data) {
+		getMutations(codeCommune, idSection, startDate, endDate, natures, types).then(function (data) {
 			data_section = data
 		})
 	]).then(

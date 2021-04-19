@@ -85,6 +85,48 @@
 					<label for="daterange" class="control-label">Date de la mutation</label>
 					<input type="text" id="daterange" name="daterange" value="01-01-2010 - 15-01-2018" class="form-control" />
 				</div>
+				<div class="mb-3">
+					<p>Nature de la mutation</p>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="nature" id="vente" value="Vente" onclick="selectionnerNature()" checked>
+						<label class="form-check-label" for="vente">Vente</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="nature" id="adjudication" value="Adjudication" onclick="selectionnerNature()" checked>
+						<label class="form-check-label" for="adjudication">Adjudication</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="nature" id="echange" value="Echange" onclick="selectionnerNature()" checked>
+						<label class="form-check-label" for="echange">Echange</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="nature" id="vente-en-etat" value="Vente en l'état futur d'achèvement" onclick="selectionnerNature()" checked>
+						<label class="form-check-label" for="vente-en-etat">Vente en l'état futur d'achèvement</label>
+					</div>
+				</div>
+				<div class="mb-3">
+					<p>Type de local</p>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="type" id="maison" value="Maison" onclick="selectionnerType()" checked>
+						<label class="form-check-label" for="maison">Maison</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="type" id="appartement" value="Appartement" onclick="selectionnerType()" checked>
+						<label class="form-check-label" for="appartement">Appartement</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="type" id="dependance" value="Dépendance" onclick="selectionnerType()" checked>
+						<label class="form-check-label" for="dependance">Dépendance</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="type" id="local" value="Local industriel. commercial ou assimilé" onclick="selectionnerType()" checked>
+						<label class="form-check-label" for="local">Local industriel. commercial ou assimilé</label>
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" name="type" id="none" value="None" onclick="selectionnerType()" checked>
+						<label class="form-check-label" for="none">None</label>
+					</div>
+				</div>
 			</div>
 
 			<div v-if="section">
