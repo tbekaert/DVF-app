@@ -1,4 +1,7 @@
 function getRemoteJSON(url, throwIfNotFound) {
+	if (url.startsWith('/api')) {
+		url = url.replace('/api', 'https://app.dvf.etalab.gouv.fr/api')
+	}
 	return fetch(url).then(function (response) {
 		if (response.ok) {
 			return response.json()
